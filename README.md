@@ -4,10 +4,10 @@ Design of a 32-bit Processor using ARM instructions. Design includes controller,
 
 ## Table of contents
 
-[Instruction Sets & Microarchitecture](#instruction-sets--microarchitecture)
-[Schematics](#schematics)
-[Verilog Implementation](#verilog-implementation)
-[Verifcation of CPU](#verification-of-cpu)
+- [Instruction Sets & Microarchitecture](#instruction-sets--microarchitecture)
+- [Schematics](#schematics)
+- [Verilog Implementation](#verilog-implementation)
+- [Verifcation of CPU](#verification-of-cpu)
 
 
 ## Instruction Sets / Microarchitecture
@@ -546,7 +546,7 @@ endmodule
 
 The result of the testbench is showcased below, where it can be seen that the memory address correctly contains the value of 7. 
 
-![verification_message](/schematics/verification_message.svg)
+![verification_message](/schematics/verification_message.png)
 
 The CPU is then concluded to be a 32 bit processor that supports many instructions. However, there are many areas of improvement. The lack of features such as branching with link, pipelining, and FPGA implementation for further verification, can prove to make a project like this stronger. I thank you for reading this repository, and I hope you gained something from it.
 
