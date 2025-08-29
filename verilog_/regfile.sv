@@ -7,10 +7,10 @@ module regfile (
   );
 
   reg [31:0] rf[14:0]; // 15 registers, each 32 bits
+  assign rd1 = (ra1 == 4'b1111) ? r15 : rf[ra1];
+  assign rd2 = (ra2 == 4'b1111) ? r15 : rf[ra2];
+
   always @(posedge clk)
-  begin
     if (we3) rf[wa3] <= wd3;
-    assign rd1 = (ra1 == 4'b1111) ? 15 : rf[ra1];
-    assign rd2 = (ra2 == 4'b1111) ? 15 : rf[ra2];
-  end
+
   endmodule

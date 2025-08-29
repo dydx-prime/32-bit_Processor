@@ -2,7 +2,7 @@
 `include "alu.sv"
 `include "regfile.sv"
 `include "mux2.sv"
-`include "dflop.sv"
+`include "dflip.sv"
 `include "adder.sv"
 
 module datapath(input  clk, reset,
@@ -25,7 +25,7 @@ wire [3:0] RA1, RA2;
   
 //PC logic 
   mux2	#( .WIDTH(32) ) pcmux(.y(PCNext),.d0(PCPlus4),.d1(Result),.s(PCSrc));
-  dflop  pcreg(clk, reset, PCNext, PC);
+  dflip  pcreg(clk, reset, PCNext, PC);
   adder pcadd1(PC, 32'b100, PCPlus4);
   adder pcadd2(PCPlus4, 32'b100, PCPlus8);
                  
@@ -35,7 +35,7 @@ wire [3:0] RA1, RA2;
   mux2 #(.WIDTH(4)) ra2mux(Instr[3:0], Instr[15:12], RegSrc[1], RA2);
   regfile rf(clk, RegWrite, RA1, RA2,Instr[15:12], Result, PCPlus8,SrcA, WriteData);
   mux2 #(.WIDTH(32)) resmux(ALUResult, ReadData, MemtoReg, Result);
-  extend ext(Instr[23:0], ImmSrc, ExtImm);
+  extender ext(Instr[23:0], ImmSrc, ExtImm);
                    
 
 // ALU logic

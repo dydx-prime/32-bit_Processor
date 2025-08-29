@@ -1,6 +1,6 @@
 module dflip(
-  input [31:0] d,
   input clk, reset,
+  input [31:0] d,
   output reg [31:0] q
   );
   

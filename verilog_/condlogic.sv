@@ -1,4 +1,4 @@
-`include "dflip.sv"
+`include "dflipen.sv"
 module condlogic(input logic clk, reset,
   input  [3:0] Cond,
   input  [3:0] ALUFlags,
@@ -6,7 +6,7 @@ module condlogic(input logic clk, reset,
   input  PCS, RegW, MemW,
   output reg PCSrc, RegWrite,MemWrite);
   
-  //intrnal wires
+  //internal wires
   wire [1:0] FlagWrite;
   wire [3:0] Flags;
   reg CondEx;
@@ -28,7 +28,6 @@ module condcheck(input  [3:0] Cond,
 
   wire neg, zero, carry, overflow, ge;
   assign {neg, zero, carry, overflow} = Flags;
-  //assign ge = (neg == overflow);
   assign ge= ~(neg^overflow);
 
   always@(*)
