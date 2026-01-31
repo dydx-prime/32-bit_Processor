@@ -1,4 +1,4 @@
-#32-bit_Risc_Processor
+# 32-bit_Risc_Processor
 
 Design of a 32-bit Processor using ARM instructions. Design includes controller, datapath, data memory, and instruction memory.
 
